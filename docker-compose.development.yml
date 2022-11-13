@@ -1,0 +1,14 @@
+version: '2.4'
+services:
+  postgres_devel:
+    container_name: 'postgres-develop'
+    image: 'postgres:14.1-alpine'
+    env_file:
+      - .env
+    ports:
+      - '54322:5432'
+    volumes:
+      - postgres_data:/data/postgres
+volumes:
+  postgres_data:
+  
