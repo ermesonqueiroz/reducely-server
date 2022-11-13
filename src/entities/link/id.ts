@@ -11,7 +11,7 @@ export class LinkId {
 
     const id = new Array(8)
       .fill(null)
-      .map(() => Math.floor(Math.random() * chars.length))
+      .map(() => chars[Math.floor(Math.random() * chars.length)])
       .join('');
 
     return new LinkId(id);
