@@ -1,8 +1,9 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import { adaptRoute } from '../../adapters/express-route-adapter';
+import { makeCreateLinkController } from '../../factories/create-link-factory';
 
 const router = Router();
 
-router.route('/link')
-  .get((req: Request, res: Response) => res.json({ ok: true }));
+router.post('/link', adaptRoute(makeCreateLinkController()));
 
 export default router;
