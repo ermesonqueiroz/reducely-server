@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { Controller } from '../../adapters/presentation/controllers/ports/controller';
-import { HttpRequest } from '../../adapters/presentation/controllers/ports/http';
+import { HttpRequest, HttpResponseUtils } from '../../adapters/presentation/controllers/ports/http';
+import { adaptResponseUtils } from './express-response-utils-adapter';
 
 export function adaptRoute(controller: Controller) {
   return async (req: Request, res: Response) => {
@@ -8,7 +9,9 @@ export function adaptRoute(controller: Controller) {
       body: req.body,
       params: req.params,
     };
-    const httpResponse = await controller.handle(httpRequest);
-    res.status(httpResponse.statusCode).json(httpResponse.body);
+    const httpResponseUtils: HttpResponseUtils = adaptResponseUtils(res);
+    const response = await controller.handle(httpRequest, httpResponseUtils);
+    
+    return response();
   };
 }
