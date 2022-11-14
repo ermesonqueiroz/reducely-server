@@ -1,5 +1,6 @@
-import { HttpRequest, HttpResponse } from './http';
+import { HttpRequest, HttpResponseUtils } from './http';
 
+export type ControllerResponse = () => void;
 export interface Controller {
-  handle(httpRequest: HttpRequest): Promise<HttpResponse>;
+  handle(httpRequest: HttpRequest, httpResponseUtils: HttpResponseUtils): Promise<ControllerResponse>;
 }
