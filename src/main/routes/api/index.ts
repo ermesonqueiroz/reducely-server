@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import linkRoutes from './link-routes';
+import v1Routes from './v1';
 
 const router = Router();
-router.use('/v1', linkRoutes);
+
+router.use('/v1', v1Routes);
 
 export default router;

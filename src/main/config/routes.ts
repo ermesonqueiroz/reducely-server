@@ -1,8 +1,6 @@
-import { Express, Router } from 'express';
-import v1 from '../routes/v1';
+import { Express } from 'express';
+import routes from '../routes';
 
 export default (app: Express) => {
-  const router = Router();
-  router.use('/', v1);
-  app.use('/api', router);
+  app.use('/', routes);
 };
