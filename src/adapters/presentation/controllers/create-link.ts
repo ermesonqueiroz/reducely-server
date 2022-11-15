@@ -1,12 +1,12 @@
 import { CreateLink } from '../../../usecases/create-link';
 import { MissingParamError } from './errors';
-import { Controller } from './ports/controller';
+import { Controller, ControllerResponse } from './ports/controller';
 import { HttpRequest, HttpResponseUtils } from './ports/http';
 
 export class CreateLinkController implements Controller {
   constructor(private readonly createLink: CreateLink) {}
 
-  public async handle(httpRequest: HttpRequest, httpResponseUtils: HttpResponseUtils): Promise<void> {
+  public async handle(httpRequest: HttpRequest, httpResponseUtils: HttpResponseUtils): Promise<ControllerResponse> {
     try {
       if (!httpRequest.body.target)
         return httpResponseUtils.badRequest(new MissingParamError('target'));
