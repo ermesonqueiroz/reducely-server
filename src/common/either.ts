@@ -34,8 +34,8 @@ export class Right<L, R> {
 
 export const left = <L, R>(l: L): Either<L, R> => {
   return new Left<L, R>(l);
-}
+};
 
 export const right = <L, R>(r: R): Either<L, R> => {
   return new Right<L, R>(r);
-}
+};
