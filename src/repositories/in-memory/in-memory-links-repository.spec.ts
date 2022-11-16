@@ -15,6 +15,24 @@ describe('In memory Links repository', () => {
     expect(link?.id).toEqual('Z5XEhf66');
   });
 
+  it('should not add link if link already exists', async () => {
+    const links: LinkData[] = [{
+      id: 'Z5XEhf66',
+      target: 'https://github.com/',
+      accessCount: 0,
+      createdAt: new Date(),
+    }];
+    const stu = new InMemoryLinkRepository(links);
+    await stu.add({
+      id: 'Z5XEhf66',
+      target: 'https://github.com/ermesonqueiroz',
+      accessCount: 0,
+      createdAt: new Date(),
+    });
+    const link = await stu.findLinkById('Z5XEhf66');
+    expect(link?.target).toEqual('https://github.com/');
+  });
+
   it('should return link if link is found', async () => {
     const links: LinkData[] = [{
       id: 'Z5XEhf66',
