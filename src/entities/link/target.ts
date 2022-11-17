@@ -1,5 +1,5 @@
 import { Either, left, right } from '../../common/either';
-import { InvalidTargetError } from './errors/invalid-target';
+import { InvalidTargetError } from '../errors/invalid-target';
 
 export class Target {
   private readonly target: string;

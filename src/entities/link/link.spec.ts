@@ -1,4 +1,4 @@
-import { InvalidTargetError } from './errors/invalid-target';
+import { InvalidTargetError } from '../errors/invalid-target';
 import { Link } from './link';
 import { left } from '../../common/either';
 

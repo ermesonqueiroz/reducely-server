@@ -2,7 +2,7 @@ import { Target } from './target';
 import { LinkData } from './link-data';
 import { LinkId } from './id';
 import { Either, left, right } from '../../common/either';
-import { InvalidTargetError } from './errors/invalid-target';
+import { InvalidTargetError } from '../errors/invalid-target';
 
 export class Link {
   public readonly id: LinkId;
