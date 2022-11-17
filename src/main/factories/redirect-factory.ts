@@ -1,7 +1,7 @@
 import { RedirectController } from '../../adapters/presentation/controllers/redirect';
 import { PostgresLinksRepository } from '../../external/repositories/postgres/postgres-links-repository';
 import { FindLink } from '../../usecases/find-link';
-import { IncreaseLinkAccessCount } from '../../usecases/increase-link-acess-count';
+import { IncreaseLinkAccessCount } from '../../usecases/increase-link-access-count';
 
 export function makeRedirectController() {
   const postgresLinksRepository = new PostgresLinksRepository();

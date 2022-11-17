@@ -1,5 +1,5 @@
 import { FindLink } from '../../../usecases/find-link';
-import { IncreaseLinkAccessCount } from '../../../usecases/increase-link-acess-count';
+import { IncreaseLinkAccessCount } from '../../../usecases/increase-link-access-count';
 import { MissingParamError } from './errors';
 import { ControllerResponse } from './ports/controller';
 import { HttpRequest, HttpResponseUtils } from './ports/http';
