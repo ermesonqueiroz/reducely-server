@@ -39,8 +39,13 @@ export class PostgresLinksRepository implements LinksRepository {
       values: [id],
     };
 
-    const results = await PostgresHelper.client.query(query);
-    return results.rows[0];
+    const { rows: [result] } = await PostgresHelper.client.query(query);
+    return {
+      id: result.id,
+      target: result.target,
+      accessCount: result.access_count,
+      createdAt: result.created_at,
+    };
   }
 
   public async exists(id: string): Promise<boolean> {
