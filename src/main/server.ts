@@ -1,6 +1,6 @@
 import { PostgresHelper } from '../external/repositories/postgres/helpers/postgres-helper';
 
-PostgresHelper.connect('postgres://user:passwd@localhost:54322/url_shortener')
+PostgresHelper.connect(process.env.DATABASE_URL as string)
   .then(async () => {
     const app = (await import('./config/app')).default;
     app.listen(process.env.PORT || 3000, () => console.log('http://localhost:3000'));
