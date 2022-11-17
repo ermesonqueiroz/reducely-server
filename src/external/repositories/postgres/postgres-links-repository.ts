@@ -3,6 +3,27 @@ import { LinksRepository } from '../../../repositories/ports/links-repository';
 import { PostgresHelper } from './helpers/postgres-helper';
 
 export class PostgresLinksRepository implements LinksRepository {
+  public async update(id: string, data: LinkData): Promise<void> {
+    const query = {
+      text: `
+        UPDATE
+          links
+        SET
+          id = $1,
+          target = $2,
+          created_at = $3,
+          access_count = $4
+        WHERE
+          id = $5
+        RETURNING
+          *
+      ;`,
+      values: [data.id, data.target, data.createdAt, data.accessCount, id],
+    };
+
+    await PostgresHelper.client.query(query);
+  }
+
   public async findLinkById(id: string): Promise<LinkData | null> {
     const query = {
       text: `
