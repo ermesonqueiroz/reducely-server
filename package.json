@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "dev": "tsnd --transpile-only --respawn src/main/server.ts"
+    "predev": "npm run services:up",
+    "dev": "tsnd --transpile-only --respawn src/main/server.ts",
+    "services:up": "docker-compose -f docker-compose.development.yml up -d",
+    "build": "tsc .",
+    "start": "node dist/main/server.js"
   },
   "keywords": [],
   "author": "",
