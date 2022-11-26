@@ -2,14 +2,14 @@
   "name": "reducely-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main/server.js",
   "scripts": {
     "test": "jest --verbose",
     "predev": "npm run services:up",
     "dev": "tsnd --transpile-only --respawn src/main/server.ts",
     "services:up": "docker-compose -f docker-compose.development.yml up -d",
-    "build": "tsc .",
-    "start": "node dist/main/server.js"
+    "build": "tsc",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
