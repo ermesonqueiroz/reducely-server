@@ -7,7 +7,7 @@
     "test": "jest --verbose",
     "predev": "npm run services:up",
     "dev": "tsnd --transpile-only --respawn src/main/server.ts",
-    "services:up": "docker-compose -f docker-compose.development.yml up -d",
+    "services:up": "docker compose -f docker-compose.development.yml up -d",
     "build": "tsc",
     "start": "node ."
   },
@@ -31,6 +31,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mongoose": "^7.0.4",
     "pg": "^8.8.0"
   }
 }

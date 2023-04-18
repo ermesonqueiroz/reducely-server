@@ -23,7 +23,6 @@ export class RedirectController {
 
       return httpResponseUtils.redirect(findLinkResponse.value.target);
     } catch (error) {
-      console.log(error);
       return httpResponseUtils.serverError('internal');
     }
   }
